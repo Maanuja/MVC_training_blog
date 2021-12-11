@@ -40,8 +40,8 @@ use App\repository\PostRepository;
                     <input type="text" name="title" class="form-control" id="title" value="<?php echo $post->getTitle(); ?>">
                 </div>
                 <div class="col-md-6">
-                    <label for="title" class="form-label">Post ID</label>
-                    <input type="text" name="id" class="form-control" id="id" value="<?php echo $post->getId(); ?>" readonly>
+                    <!-- <label for="title" class="form-label">Post ID</label> -->
+                    <input type="text" name="id" class="form-control" id="id" value="<?php echo $post->getId(); ?>" hidden>
 
                 </div>
                 <div class="col-12">

@@ -1,4 +1,6 @@
-<?php session_start(); ?>
+<?php session_start(); 
+    use App\repository\UserRepository;
+?>
 <?php $titled = 'DramaNote | CreatePost'; ?>
 <?php $css = '' ?>
 <?php ob_clean() ?>
@@ -40,7 +42,11 @@
                     </div>
                     <div class="mb-3">
                         <label for="id" class="form-label" hidden>Id</label>
-                        <input type="text" name="id" class="form-control" id="id" value="<?php echo $_SESSION['id'] ?>" hidden>
+                        <input type="text" name="id" class="form-control" id="id" value="<?php if (isset($_SESSION['mail'])) { 
+                                                                                                    $userObject = new UserRepository();
+                                                                                                    $user =  $userObject->getUser($_SESSION['mail']);
+                                                                                                }
+                                                                                                echo $user->getuId(); ?>" hidden>
                     </div>
                 </form>
             </div>

@@ -23,12 +23,11 @@
                     <div class="modal-dialog" role="document">
                         <div class="modal-content rounded-5 shadow">
                             <div class="modal-header p-5 pb-4 border-bottom-0">
-                                <!-- <h5 class="modal-title">Modal title</h5> -->
                                 <h2 class="fw-bold mb-0">Sign Up !</h2>
                                 <button type="button" id="myBtn" class="btn-close" aria-label="Close" ></button>
                             </div>
                             <div class="modal-body p-5 pt-0">
-                                <form action="index.php?route=signin" method="post" onsubmit="return confirm('Do you really want to sign in?')">
+                                <form action="index.php?route=signin" method="post">
                                     <div class="form-floating mb-3">
                                         <input type="text" name="firstname"class="form-control" id="firstname" placeholder="Mary" required>
                                         <label for="firstname">FirstName</label>
@@ -41,7 +40,7 @@
                                         <label for="mail">Email address</label>
                                     </div>
                                     <div class="form-floating mb-3">
-                                        <input type="text" name="tel" class="form-control" id="tel" placeholder="00.00.00.00.00" required>
+                                        <input type="tel" pattern="[0-9]{10}" name="tel" class="form-control" id="tel" placeholder="00.00.00.00.00" required>
                                         <label for="tel">Telephone number</label>
                                     </div>
                                     <div class="form-floating">

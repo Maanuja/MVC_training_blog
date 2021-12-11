@@ -1,8 +1,8 @@
-#identite{
+#identite, #mypost{
     display: none;
 }
 
-#identite:target{
+#identite:target, #mypost:target{
     display: block;
 }
 #identite table,  #changemdp table{
@@ -40,53 +40,6 @@ h1, .cid{
     text-align: left;
     margin-left: auto;
     margin-right: auto;
-}
-#commande{
-    display: none;
-    text-align: left;
-    font-size: 15px;
-    margin:35px 0 35px 100px;
-    font-family: PT serif;
-
-    border: 5px solid var(--lightbrown) ;
-    padding: 30px ;
-    margin: 50px 80px;
-    border-radius: 15px;
-    width: 60%;
-}
-
-#commande> table{
-    width: 90%;
-    border-collapse: collapse;
-}
-
-#commande> th{
-    text-align: left;
-    font-size: 17px;
-    border-bottom: 1px solid black;
-}
-
-#commande> table tr{
-    border-bottom: 0.2px solid black;
-    text-align: left;
-}
-#commande> table tr td{
-    width: 20%;
-    height: 30px;
-}
-
-
-#commande:target{
-    display: block;
-}
-
-#devis{
-    display: none;
-
-}
-
-#devis:target{
-    display: block;
 }
 
 input[type=text],input[type=email],input[type=file],input[type=password], textarea, select{

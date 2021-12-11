@@ -5,8 +5,10 @@
     $postObjects = new PostRepository();
     $posts = $postObjects->getPosts()->fetchAll();
 
-    if (isset($_SESSION['mail'])) { $userObject = new UserRepository();
-        $user =  $userObject->getUser($_SESSION['mail']);}
+    if (isset($_SESSION['mail'])) { 
+        $userObject = new UserRepository();
+        $user =  $userObject->getUser($_SESSION['mail']);
+    }
 ?>
 <?php $titled = 'DramaNote | Dramas'; ?>
 <?php $css = '' ?>
@@ -27,7 +29,6 @@
 </div>
 <?php $log = ob_get_clean() ?>
 <?php ob_start(); ?>
-<section class="jumbo text-centertron"></section>
             <div class="album py-5 bg-light">
                 <div class="container">
                     <?php

@@ -39,12 +39,12 @@ nav a img{
 }
 
 .btn-primary{
-  background: #FADBD8;
+  background: #EF9A9A;
 
 }
 
 .btn-primary:hover{
-  background: #EF9A9A;
+  background: #FADBD8;
 
 }
 
@@ -78,6 +78,9 @@ nav a img{
   margin: 5px 0;
 }
 
+.form-control{
+  background-color: white;
+}
 
 
 /* .btn-primary{
