@@ -13,9 +13,6 @@ class PostController
         $this->userRepository = new UserRepository();
 
     }
-    // public function showIndex(){
-    //     require('src/view/home.php');
-    // }
     public function showDrama(){
         $this->postRepository->getPosts();
         require('src/view/drama.php');
@@ -23,14 +20,8 @@ class PostController
     public function showContact(){
         require('src/view/contact.php');
     }
-    // public function showAboutus(){
-    //     require('src/view/aboutus.php');
-    // }
     public function ShowCreate()
     {
-        // if ('POST' === $_SERVER['REQUEST_METHOD']) {
-        //     $this->postRepository->create($_POST);
-        // }
         require('src/view/postLayout/dramaCreate.php');
     }
 
@@ -59,7 +50,6 @@ class PostController
     {
         $postRepository = new PostRepository();
         $post = $postRepository->getPost($id);
-
         // var_dump($post);
         require('src/view/postLayout/dramaRead.php');
     }

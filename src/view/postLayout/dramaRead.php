@@ -25,16 +25,19 @@
 <?php ob_start(); ?>
 <div class="bg-light">
         <div class="container">
-                    <?php
-                    $postObjects = new PostRepository();
-                    $posts = $postObjects->getPosts()->fetchAll();
-                    $author =  $postObjects->getAuthor($post->getAuthorId());
-                    ?> 
-                    <div class="card-header"><?php echo $post->getTitle(); ?></div>
-                    <div class="card-body">
-                        <h4 class="card-title">By <?php echo ' '.$author->getLastname().' '.$author->getFirstname() ?></h4>
-                        <p class="card-text"><?php echo $post->getContent();?></p>
-                    </div>
+            <?php
+            $postObjects = new PostRepository();
+            $posts = $postObjects->getPosts()->fetchAll();
+            $author =  $postObjects->getAuthor($post->getAuthorId());
+            ?>
+            <div class="card-header"><?php echo $post->getTitle(); ?></div>
+            <div class="card-body">
+                <h4 class="card-title">By <?php echo ' '.$author->getLastname().' '.$author->getFirstname() ?></h4>
+            </div>
+            <div class="clearfix">
+                <img src="assets/images/posts/<?php echo $post->getImage() ?>" class="col-md-6 float-md-end mb-3 ms-md-3" alt="...">
+                <p class="card-text"><?php echo $post->getContent();?></p>
+            </div>
         </div>
 </div>
 <?php $content = ob_get_clean(); ?>

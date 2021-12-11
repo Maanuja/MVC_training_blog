@@ -36,15 +36,19 @@
             </div>
             <div class="container">
                 <section class="features-content ">
-                    <div class="image" style="background-image: url(assets/images/lunesurf.jpg);">
-                        <span class="bg-mobile" style="background-color: #FFEFE2;"></span>
+                    <div class="image" style="background-image: url(assets/images/dramas.jpg);">
+                        <span class="bg-mobile" style="background-color: #A2D9CE ;"></span>
                     </div>
                     <div class="text">
-                        <span class="bg-color" style="background-color: #FFEFE2;"></span>
+                        <span class="bg-color" style="background-color: #A2D9CE ;"></span>
                         <div class="box-holder">
                             <h2>WHO AM I?</h2>
-                            <p>We're the cozy workshop place to be and the #1 provider in France. We believe that confort don't come with a price therfore, we've been working hard for years to build the best coffee Shop on earth. Our goal in to bring you high quality drink delivered with expertise, convenience, and warmth.</p>
-                            <p>After all, Drama is everything.</p>
+                            <p>Hi, This is Maanuja. I'm the creator of this website with the help of Bootstrap <i class="fa fa-heart"></i>!
+                            I've been watching k-drama for years so I thought It will be nice to have my one k-drama website where every body can create contente about it! I need to add way more new features.. but I'll do it when I can :).</p>
+                            </br>
+                            <p>This is the beginning of an adventure</p>
+                            <h3>After all, Drama is everything.</h3>
+                            
                         </div>
                     </div>
                 </section>
