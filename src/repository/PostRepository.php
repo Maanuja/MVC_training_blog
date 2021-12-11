@@ -65,7 +65,7 @@ class PostRepository extends Database
     {
         if (!empty($_FILES['image']['name'])) {
             $var1 = rand(1111,9999);
-            $file = $data['id'].$var1.git s$_FILES['image']['name'];
+            $file = $data['id'].$var1.$_FILES['image']['name'];
             $folder = "assets/images/posts/";
             $new_file_name = strtolower($file);
             $final_file = str_replace(' ','-',$new_file_name);
@@ -152,6 +152,17 @@ class PostRepository extends Database
         );
         header('Location: index.php?route=sucess&resquest=deleted');
         exit();
+    }
+
+    public function getLast3post(): array
+    {
+        $prep = $this->createQuery("SELECT * FROM post WHERE etat = 1 ORDER BY DATE DESC LIMIT 3");
+        $result = $prep->fetchAll(\PDO::FETCH_ASSOC);
+        $res = array();
+        foreach ($result as $row) {
+            array_push($res, ($this->builtPost($row)));
+        }
+        return $res;
     }
 }
 

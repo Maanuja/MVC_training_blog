@@ -40,7 +40,7 @@
                                     <input type="password" name="mdp" class="form-control" id="mdp" placeholder="********">
                                     <label for="mdp">Password</label>
                                     <div class="modal-footer">
-                                        <i class="fa fa-eye" id="pass-status-mdpco" aria-hidden="true" onClick="mdp()"></i>
+                                        <i class="fa fa-eye-slash" id="pass-status-mdpco" aria-hidden="true" onClick="mdp()"></i>
                                     </div>
                                 </div>
                                 <small class="text-muted">
@@ -60,26 +60,6 @@
                     </div>
                 </p>
             </main>
-        <script type="text/javascript">
-        function mdp()
-        {
-          var passwordInput = document.getElementById('mdp');
-          var passStatus = document.getElementById('pass-status-mdpco');
-         
-          if (passwordInput.type == 'password'){
-            passwordInput.type='text';
-            passStatus.className='fa fa-eye-slash';
-            
-          }
-          else{
-            passwordInput.type='password';
-            passStatus.className='fa fa-eye';
-          }
-        }
-
-        document.getElementById("myBtn").onclick = function () {
-            location.href = "index.php";
-        };
-        </script>
+            <script type="text/javascript" src="assets/js/main.js"></script>
 <?php $content = ob_get_clean(); ?>
 <?php require('src/view/main.php'); ?>
