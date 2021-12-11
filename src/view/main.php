@@ -18,17 +18,18 @@
     </head>
     <body>
         <header class="p-3 bg-dark text-white">
+            <nav>
             <div class="container">
                 <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
                 <a href="index.php" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
-                    <i class="fa fa-instagram"></i>
+                    <img src="assets/images/dramanote.png" 
+                        alt="image"/>
                 </a>
 
                 <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
                     <li><a href="index.php" class="nav-link px-2 text-secondary">Home</a></li>
                     <li><a href="index.php?route=drama" class="nav-link px-2 text-white">Drama</a></li>
                     <li><a href="index.php?route=contact" class="nav-link px-2 text-white">Contact</a></li>
-                    <li><a href="#" class="nav-link px-2 text-white">FAQs</a></li>
                     <li><a href="index.php?route=aboutus" class="nav-link px-2 text-white">About Me</a></li>
                 </ul>
 
@@ -36,6 +37,7 @@
                     <?= $log ?>
                 </div>
             </div>
+            </nav>
         </header>
         <?= $content ?>
         <div class="bgcolor">
@@ -45,7 +47,6 @@
                         <li class="nav-item"><a href="index.php" class="nav-link px-2 text-muted">Home</a></li>
                         <li class="nav-item"><a href="index.php?route=drama" class="nav-link px-2 text-muted">Drama</a></li>
                         <li class="nav-item"><a href="index.php?route=contact" class="nav-link px-2 text-muted">Contact</a></li>
-                        <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">FAQs</a></li>
                         <li class="nav-item"><a href="index.php?route=aboutus" class="nav-link px-2 text-muted">About Me</a></li>
                     </ul>
                     <div class="d-flex justify-content-between py-4 my-4">
