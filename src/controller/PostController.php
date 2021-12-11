@@ -45,6 +45,7 @@ class PostController
         }
     }
 
+    // CRUD POST
     public function create()
     {
         if ('POST' === $_SERVER['REQUEST_METHOD']) {
