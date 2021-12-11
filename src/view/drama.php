@@ -1,12 +1,18 @@
-<?php session_start(); ?>
-<?php use App\repository\PostRepository; ?>
+<?php session_start();
+    use App\repository\PostRepository; 
+    use App\repository\UserRepository;
+
+    $postObjects = new PostRepository();
+    $posts = $postObjects->getPosts()->fetchAll();
+
+    $userObject = new UserRepository();
+    $user =  $userObject->getUser($_SESSION['mail']);
+?>
 <?php $titled = 'DramaNote | Dramas'; ?>
 <?php $css = '' ?>
 <?php ob_clean() ?>
 <div class="text-end">
-    <?php
-    if (isset($_SESSION['mail']) && isset($_SESSION['mdp'])) {
-    ?>
+    <?php if (isset($_SESSION['mail'])) { ?>
         <button type="button" class="btn btn-outline-light me-2 btn-round"><a href="index.php?route=account">Account</a></button>
         <button type="submit" class="btn btn-g btn-round"><a href="index.php?route=logout">Log out</a></button>                    
     <?php
@@ -43,18 +49,7 @@
                     </div>
                     <div class="row">
                         <?php
-                            $postObjects = new PostRepository();
-                            $posts = $postObjects->getPosts()->fetchAll();
-                            // var_dump($posts);
                             foreach( $posts as $post) {
-                                // echo $post['title'];
-                                // $date = new \DateTime($post['createdAt']);
-                                // echo $date->format('d/m/Y');
-
-                                //appelle new sql for authorid with la class post et vu que c'est une array faut renommer post->postObject                    
-                                // $authorname = $postObjects->getAuthor($post['authorID']);
-                                // var_dump($authorname);
-                                // $author =  $postObjects->getAuthor($id);
                         ?>
                         <div class="col-md-4">
                         <div class="card mb-4 box-shadow">
@@ -73,7 +68,7 @@
                                     <div class="btn-group">
                                     <button type="button" class="btn btn-sm btn-outline-secondary"><a href="index.php?route=post&action=read&id=<?php echo $post['id'];?>" class="nav-link px-2 text-secondary">View</a></button>
                                     <?php 
-                                        if (isset($_SESSION['mail']) && $_SESSION['id']==$post['authorID']) {
+                                        if (isset($_SESSION['mail']) && $user->getuId()==$post['authorID']) {
                                             echo '<button type="button" class="btn btn-sm btn-outline-secondary">';
                                             echo '<a href="index.php?route=post&action=update&id=';
                                             echo $post['id'];

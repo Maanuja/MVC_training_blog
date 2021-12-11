@@ -37,7 +37,11 @@ class PostController
             $this->userRepository->loginUser($_POST);
         }
     }
-
+    public function changePassword(){
+        if ('POST' === $_SERVER['REQUEST_METHOD']) {
+            $this->userRepository->changePassword($_POST);
+        }
+    }
     // CRUD POST
     public function create()
     {

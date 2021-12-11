@@ -50,6 +50,8 @@ class Router
                 require('src/view/sqlanswer/succes.php');
             } elseif ('account' === $route ) {
                 require('src/view/user/account.php');
+                return $postController->changePassword();
+
             }
             
         }

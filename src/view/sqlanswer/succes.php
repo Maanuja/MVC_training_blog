@@ -4,8 +4,7 @@
 <?php ob_clean() ?>
 <div class="text-end">
     <?php
-    if (isset($_SESSION['mail']) && isset($_SESSION['mdp'])) {
-    ?>
+    if (isset($_SESSION['mail'])) {    ?>
         <button type="button" class="btn btn-outline-light me-2 btn-round"><a href="index.php?route=account">Account</a></button>
         <button type="submit" class="btn btn-g btn-round"><a href="index.php?route=logout">Log out</a></button>                    
     <?php
@@ -31,10 +30,10 @@
     {
         $sqlres ='<div class="correct">Le post a été updated!</div>';
     }
-    // if (isset($_GET['resquest']) && $_GET['resquest'] == 'signed')
-    // {
-    //     $sqlres ='<div class="correct">User signed!</div>';
-    // }
+    if (isset($_GET['resquest']) && $_GET['resquest'] == 'mdpchanged')
+    {
+        $sqlres ='<div class="correct">Your password has been changed !</div>';
+    }
     // if (isset($_GET['route']) && $_GET['route'] == 'exist')
     // {
     //     $sqlres ='<div class="correct">User already exist!</div>';

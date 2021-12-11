@@ -31,7 +31,7 @@
                         </div>
 
                         <div class="modal-body p-5 pt-0">
-                            <form class="" action="index.php?route=login" method="POST" onsubmit="return confirm('Do you really want to log in?')">
+                            <form class="" action="index.php?route=login" method="POST">
                                 <div class="form-floating mb-3">
                                     <input type="email" name="mail" class="form-control" id="mail" placeholder="name@example.com">
                                     <label for="mail">Email address</label>

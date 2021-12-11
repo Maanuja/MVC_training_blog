@@ -1,12 +1,34 @@
 <?php
 
 namespace App\repository;
+use App\model\User as ModelUser;
 
 use App\Database;
 
 
 class UserRepository extends Database
 {
+    public function getUser(string $mail)
+    {
+        $prep = $this->createquery('SELECT * FROM author WHERE email = :mail',
+            [':mail' => $mail]
+        );
+        return $this->builtUser($prep->fetch());
+    }
+
+    private function builtUser(array $row): ModelUser
+    {
+        $user = new ModelUser;
+        $user->setuId((int) $row['id']);
+        $user->setuFirstname((string)$row['firstname']);
+        $user->setuLastname((string)$row['lastname']);
+        $user->setuEmail((string) $row['email']);
+        $user->setuTelephone( $row['phone']);
+        $user->setuPassword((string) $row['mdp']);
+        // var_dump($user);
+        return $user;
+    }
+
     public function signUser(array $data = []){
         $stmt = $this->createQuery(
             'SELECT email FROM author WHERE email=:email',
@@ -50,26 +72,7 @@ class UserRepository extends Database
                 if ($login == $data['mail'] && $pwd == $data['mdp']) {
                     // register param of user ($mail et $mdp) 
                     $_SESSION['mail'] = $data['mail'];
-                    $_SESSION['mdp'] = $data['mdp'];
 
-
-                    //user info
-                    $num = $this->createQuery(
-                        'SELECT * FROM author WHERE email=:mail ',
-                        [
-                            'mail' => $login,
-                        ]
-                    );
-
-                    $infoClient = $num->fetch();
-
-                    $_SESSION['id'] = $infoClient[0];
-                    $_SESSION['firstname'] = $infoClient[1];
-                    $_SESSION['lastname'] = $infoClient[2];
-                    $_SESSION['mail'] = $infoClient[3];
-                    $_SESSION['phone'] = $infoClient[4];
-                    $_SESSION['mdp'] = $infoClient[5];
-                    // redirect user to account
                     echo '<meta http-equiv="refresh" content="0;URL=index.php?route=account">';
                     break;
                 }
@@ -81,6 +84,33 @@ class UserRepository extends Database
         }
         else {
             echo "<script>alert(\"Fill the form!\")</script>";
+        }
+    }
+
+    public function changePassword(array $data = []){
+        
+        $oldmdp=$data['oldmdp'];
+        $newmdp=$data['newmdp'];        
+        $cofmdp=$data['cofmdp'];
+        if(($oldmdp==$data['pwd']) && ($newmdp==$cofmdp))
+        {
+            $this->createQuery(
+            'UPDATE author SET mdp= :newmdp WHERE id=:id ',
+            [
+                'newmdp' => $newmdp,
+                'id' => $data['id'],
+            ]
+        );
+        echo '<meta http-equiv="refresh" content="0;URL=index.php?route=sucess&resquest=mdpchanged">';
+        exit;
+        }
+        elseif ($oldmdp!=$data['pwd']) {
+            echo "<script>alert(\"ancien mdp incorrect :(\")</script>";
+
+        }
+        elseif ($newmdp!=$cofmdp) {
+            echo "<script>alert(\"Les mots de passe ne sont pas identiques :5\")</script>";
+
         }
     }
 }

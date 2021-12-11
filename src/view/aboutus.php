@@ -3,9 +3,7 @@
 <?php $css = 'id="color-scheme" href="assets/css/aboutus.css" rel="stylesheet"' ?>
 <?php ob_clean() ?>
 <div class="text-end">
-    <?php
-    if (isset($_SESSION['mail']) && isset($_SESSION['mdp'])) {
-    ?>
+    <?php    if (isset($_SESSION['mail'])) {    ?>
         <button type="button" class="btn btn-outline-light me-2 btn-round"><a href="index.php?route=account">Account</a></button>
         <button type="submit" class="btn btn-g btn-round"><a href="index.php?route=logout">Log out</a></button>                    
     <?php
