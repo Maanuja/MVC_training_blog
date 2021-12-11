@@ -48,7 +48,7 @@ use App\repository\PostRepository;
                 </div>
                 <div class="col-12">
                     <label for="content" class="form-label">Content</label>
-                    <textarea name="content" class="form-control" placeholder="CONTENT ARTICLES"><?php echo $post->getContent(); ?></textarea>
+                    <textarea name="content" class="form-control" placeholder="CONTENT ARTICLES" rows="15" minlength="150"><?php echo $post->getContent(); ?></textarea>
                 </div>
                 <div class="col-md-6">
                     <label for="date" class="form-label">Created on </label>

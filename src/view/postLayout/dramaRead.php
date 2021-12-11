@@ -23,23 +23,20 @@
 </div>
 <?php $log = ob_get_clean() ?>
 <?php ob_start(); ?>
-
+<div class="bg-light">
         <div class="container">
-            <div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
                     <?php
                     $postObjects = new PostRepository();
                     $posts = $postObjects->getPosts()->fetchAll();
                     $author =  $postObjects->getAuthor($post->getAuthorId());
-                    // var_dump($post);
-                    // var_dump($author);
                     ?> 
                     <div class="card-header"><?php echo $post->getTitle(); ?></div>
                     <div class="card-body">
-                        <h4 class="card-title">By <?php echo $author->getFirstname() ?></h4>
+                        <h4 class="card-title">By <?php echo ' '.$author->getLastname().' '.$author->getFirstname() ?></h4>
                         <p class="card-text"><?php echo $post->getContent();?></p>
                     </div>
-            </div>
         </div>
+</div>
 <?php $content = ob_get_clean(); ?>
 
 <?php require('src/view/main.php'); ?>

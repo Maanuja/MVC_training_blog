@@ -31,7 +31,7 @@
 
                     <div class="mb-3">
                         <label for="content" class="form-label">Content</label>
-                        <textarea class="form-control" id="content" name="content" rows="25"></textarea>
+                        <textarea class="form-control" id="content" name="content" rows="25" minlength="150"></textarea>
                     </div>
 
                     <div class="col-auto">

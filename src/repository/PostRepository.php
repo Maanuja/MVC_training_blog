@@ -70,7 +70,7 @@ class PostRepository extends Database
                 'title' => $data['title'],
                 'content' => $data['content'],
                 'createdAt' => (new \DateTime())->format('Y-m-d H:i:s'),
-                'authorId' => $_SESSION['id'],
+                'authorId' => $data['id'],
             ]
         );
         header('Location: index.php?route=sucess&resquest=created');
