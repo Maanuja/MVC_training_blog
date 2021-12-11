@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : sam. 11 déc. 2021 à 20:40
+-- Généré le : sam. 11 déc. 2021 à 20:45
 -- Version du serveur :  5.7.31
 -- Version de PHP : 7.3.21
 
@@ -61,21 +61,6 @@ CREATE TABLE IF NOT EXISTS `contact` (
   `msg` longtext CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `email` varchar(75) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`Idcon`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
--- Structure de la table `image`
---
-
-DROP TABLE IF EXISTS `image`;
-CREATE TABLE IF NOT EXISTS `image` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `file_name` varchar(100) NOT NULL,
-  `type` varchar(100) NOT NULL,
-  `size` int(100) NOT NULL,
-  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
