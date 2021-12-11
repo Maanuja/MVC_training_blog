@@ -3,13 +3,15 @@
 namespace App\controller;
 
 use App\repository\PostRepository;
-use App\view\View;
+use App\repository\UserRepository;
 
 class PostController
 {
     public function __construct()
     {
         $this->postRepository = new PostRepository();
+        $this->userRepository = new UserRepository();
+
     }
     // public function showIndex(){
     //     require('src/view/home.php');
@@ -34,14 +36,14 @@ class PostController
 
     public function signUser(){
         if ('POST' === $_SERVER['REQUEST_METHOD']) {
-            $this->postRepository->signUser($_POST);
+            $this->userRepository->signUser($_POST);
             // var_dump($_POST);
         }
     }
 
     public function loginUser(){
         if ('POST' === $_SERVER['REQUEST_METHOD']) {
-            $this->postRepository->loginUser($_POST);
+            $this->userRepository->loginUser($_POST);
         }
     }
 
