@@ -68,14 +68,6 @@
                   <td><input type="text" name="newpp" placeholder="PRENOM" required=""></td>
               </tr>
               <tr>
-                  <th>Sexe:</th>
-                  <td>
-                      <input type="radio" value="Femme" name="R" required>Femme
-                      <input type="radio" value="Homme" name="R">Homme
-                      <input type="radio" value="Non binaire" name="R">Non Binaire
-                  </td>
-              </tr>
-              <tr>
                   <th>Mail:</th>
                   <td><input type="text" name="newmail"  placeholder="pseudo@domain.com" required="">
                   </td>
