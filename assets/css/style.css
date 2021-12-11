@@ -16,6 +16,12 @@ a{
 .bgcolor{
   background-color: var(--midnight);
 }
+
+nav a img{
+  display: block;
+  height:80px;
+  width:80px;
+}
 /*--------------------------------------------------------------
 	Buttons
 --------------------------------------------------------------*/
