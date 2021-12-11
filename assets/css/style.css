@@ -38,6 +38,15 @@ nav a img{
   border-radius: 2px;
 }
 
+.btn-primary{
+  background: #FADBD8;
+
+}
+
+.btn-primary:hover{
+  background: #EF9A9A;
+
+}
 
 .btn.btn-g {
   background: #e5e5e5;

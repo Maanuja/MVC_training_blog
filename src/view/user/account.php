@@ -25,16 +25,16 @@ use App\repository\UserRepository;
 </div>
 <?php $log = ob_get_clean() ?>
 <?php ob_start(); ?>
-<div class="container"><h2>Your Profile Page</h2></div>
+<div class="container"><h1>Your Profile Page</h1></div>
 <h2 class="pb-2 border-bottom"></h2>
-<div class="btn-group-vertical">
-  <button type="button" class="btn btn-primary"><a href="#identite">Profil Info</a></button>
-  <button type="button" class="btn btn-primary"><a href="#">My Posts</a></button>
-  <button type="button" class="btn btn-primary"><a href="#change">Change Info</a></button>
-  <button type="button" class="btn btn-primary"><a href="#changemdp">Change Password</a></button>
 
-</div>
 <div class="container">
+    <div class="btn-group-vertical">
+      <button type="button" class="btn btn-primary"><a href="#identite">Profil </br> Info</a></button>
+      <button type="button" class="btn btn-primary"><a href="#">My Posts</a></button>
+      <button type="button" class="btn btn-primary"><a href="#changemdp">Change </br> Password</a></button>
+
+    </div>
     <div id="identite">
       <h1>My infos:</h1>
       <table class="center">
@@ -62,80 +62,48 @@ use App\repository\UserRepository;
       <br>
     </div>
 
-    <div id="change">
+    <div id="changemdp">
 
-      <h1> CHANGER MES COORDONNEES :</h1>
+        <h1> CHANGER MON MDP :</h1>
 
-      <a href="#">  </a>
-      <form method="post" name="coor">
-          <table class="center">
-              <tr>
-                  <th>Nom:</th>
-                  <td><input type="text" name="newn" placeholder="NOM" required=""></td>
-              </tr>
-              <tr>
-                  <th>Prénom:</th>
-                  <td><input type="text" name="newpp" placeholder="PRENOM" required=""></td>
-              </tr>
-              <tr>
-                  <th>Mail:</th>
-                  <td><input type="text" name="newmail"  placeholder="pseudo@domain.com" required="">
-                  </td>
-              </tr>
-              <tr>
-                  <th>Numéro de télephone:</th>
-                  <td><input type="text" name="newtel" placeholder="00.00.00.00.00" required=""></td>
-              </tr>
-              <tr>
-                  <td><input type="reset" value="ANNULER"></td>
-                  <td colspan="2"><input type="submit" name="NEWCORD" value="ENVOYER"></td>
-          </tr>
-          </table>
-      </form>
-  </div>
+        <a href="#">  </a>
+        <form method="post" name="cgmdp">
+            <table class="center">
+              <input type="text" name="id" id="id" value="<?php echo $user->getuId(); ?>" hidden>
+              <input type="text" name="pwd" id="pwd" value="<?php echo $user->getuPassword(); ?>" hidden>
 
-          <div id="changemdp">
-
-              <h1> CHANGER MON MDP :</h1>
-
-              <a href="#">  </a>
-              <form method="post" name="cgmdp">
-                  <table class="center">
-                    <input type="text" name="id" id="id" value="<?php echo $user->getuId(); ?>" hidden>
-                    <input type="text" name="pwd" id="pwd" value="<?php echo $user->getuPassword(); ?>" hidden>
-
-                      <tr>
-                          <th>Ancien mot de passe*:</th>
-                          <td>
-                              <div class="eye">
-                                  <input type="password" name="oldmdp" placeholder="Ancien mdp " required="" id="password-field-old"><i class="fa fa-eye" id="pass-status-old" aria-hidden="true" onClick="oldmdp()"></i>
-                              </div>
-                          </td>
-                      </tr>
-                      <tr>
-                          <th>Nouveau mot de passe*:</th>
-                          <td>
-                              <div class="eye">
-                                  <input type="password" name="newmdp" placeholder="Nouveau mdp " required="" id="password-field-new"><i class="fa fa-eye" id="pass-status-new" aria-hidden="true" onClick="newmdp()"></i>
-                              </div>
-                          </td>
-                      </tr>
-                      <tr>
-                          <th>Confirmer mot de passe*:</th>
-                          <td>
-                              <div class="eye">
-                                  <input type="password" name="cofmdp" placeholder="Confirmer mdp " required="" id="password-field-cof"><i class="fa fa-eye" id="pass-status-cof" aria-hidden="true" onClick="cofmdp()"></i>
-                              </div>
-                          </td>
-                      </tr>
-                      <tr>
-                      <td colspan="2">
-                        <input type="submit" name="NEWMDP" value="ENVOYER">
-                      </td>
-                  </tr>
-                  </table>
-              </form>
-          </div>
+                <tr>
+                    <th>Ancien mot de passe*:</th>
+                    <td>
+                        <div class="eye">
+                            <input type="password" name="oldmdp" placeholder="Ancien mdp " required="" id="password-field-old"><i class="fa fa-eye" id="pass-status-old" aria-hidden="true" onClick="oldmdp()"></i>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Nouveau mot de passe*:</th>
+                    <td>
+                        <div class="eye">
+                            <input type="password" name="newmdp" placeholder="Nouveau mdp " required="" id="password-field-new"><i class="fa fa-eye" id="pass-status-new" aria-hidden="true" onClick="newmdp()"></i>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Confirmer mot de passe*:</th>
+                    <td>
+                        <div class="eye">
+                            <input type="password" name="cofmdp" placeholder="Confirmer mdp " required="" id="password-field-cof"><i class="fa fa-eye" id="pass-status-cof" aria-hidden="true" onClick="cofmdp()"></i>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                <td colspan="2">
+                  <input type="submit" name="NEWMDP" value="ENVOYER">
+                </td>
+            </tr>
+            </table>
+        </form>
+    </div>
 </div>
 <div class="container">
     <section class="jumbo text-centertron">

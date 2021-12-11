@@ -5,7 +5,7 @@
 #identite:target{
     display: block;
 }
-#identite table,  #change table,  #changemdp table{
+#identite table,  #changemdp table{
     width: 80%;
     /* border-collapse: collapse; */
     margin-left: auto;
@@ -20,11 +20,11 @@ h1, .cid{
     text-decoration: underline;
 }
 
-#change, #avscom, #changemdp{
+#avscom, #changemdp{
     display: none;
 }
 
-#change:target, #changemdp:target{
+#changemdp:target{
     display: block;
 }
 .eye i {

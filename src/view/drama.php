@@ -5,8 +5,8 @@
     $postObjects = new PostRepository();
     $posts = $postObjects->getPosts()->fetchAll();
 
-    $userObject = new UserRepository();
-    $user =  $userObject->getUser($_SESSION['mail']);
+    if (isset($_SESSION['mail'])) { $userObject = new UserRepository();
+        $user =  $userObject->getUser($_SESSION['mail']);}
 ?>
 <?php $titled = 'DramaNote | Dramas'; ?>
 <?php $css = '' ?>
