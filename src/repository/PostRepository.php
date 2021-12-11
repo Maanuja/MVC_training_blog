@@ -14,8 +14,6 @@ class PostRepository extends Database
     //Connection A la base de donnée
     public function getPosts()
     {
-        // $connection = (new Database())->getConnection();
-        // return $connection->query('SELECT * FROM post');
         return $this->getConnection()->query('SELECT * FROM post');
     }
 
@@ -46,12 +44,9 @@ class PostRepository extends Database
 
     public function getAuthor(int $authorId)
     {
-        // $connection = (new Database())->getConnection();
         $prep = $this->createquery('SELECT * FROM author WHERE id = :authorID',
-            // $prep = $connection->prepare('SELECT firstname,lastname FROM author WHERE id = :authorID');
             [':authorID' => $authorId]
         );
-        // return $prep->fetch();
         return $this->builtAuthor($prep->fetch());
     }
 
@@ -67,6 +62,55 @@ class PostRepository extends Database
         return $author;
     }
 
+    public function create(array $data = [])
+    {
+        $this->createQuery(
+            'INSERT INTO post (title, content, createdAt, authorID) VALUES (:title, :content, :createdAt, :authorId)',
+            [
+                'title' => $data['title'],
+                'content' => $data['content'],
+                'createdAt' => (new \DateTime())->format('Y-m-d H:i:s'),
+                'authorId' => $_SESSION['id'],
+            ]
+        );
+        header('Location: index.php?route=sucess&resquest=created');
+        exit();
+    }
+
+    public function update(array $data = [])
+    {
+        $this->createQuery(
+            'UPDATE `post` SET title=:title, content=:content, createdAt=:createdAt, updateAt=:updateAt WHERE id=:id ',
+            [
+                'title' => $data['title'],
+                'content' => $data['content'],
+                'createdAt' => $data['createdAt'],
+                'updateAt' => $data['updateAt'],
+                'id' => $data['id'],
+            ]
+        );
+        header('Location: index.php?route=sucess&resquest=updated');
+        exit();
+    }
+
+    public function delete(array $data = [])
+    {
+        $this->createQuery(
+            // title=:title, content=:content, createdAt=:createdAt, 
+            'DELETE FROM post WHERE id=:id ',
+            [
+                // 'title' => $data['title'],
+                // 'content' => $data['content'],
+                // 'createdAt' => $data['createdAt'],
+                // 'deletedAt' => $data['delatedAt'],
+                'id' => $data['id'],
+            ]
+        );
+        header('Location: index.php?route=sucess&resquest=deleted');
+        exit();
+    }
+
+    //SESSION USER
     public function signUser(array $data = []){
         $stmt = $this->createQuery(
             'SELECT email FROM author WHERE email=:email',
@@ -142,75 +186,6 @@ class PostRepository extends Database
         else {
             echo "<script>alert(\"Fill the form!\")</script>";
         }
-    }
-
-    // public function getUser(int $mail)
-    // {
-    //     // $connection = (new Database())->getConnection();
-    //     $prep = $this->createquery('SELECT * FROM author WHERE email = :mail',
-    //         // $prep = $connection->prepare('SELECT firstname,lastname FROM author WHERE id = :authorID');
-    //         [':email' => $mail]
-    //     );
-    //     // return $prep->fetch();
-    //     return $this->builtUser($prep->fetch());
-    // }
-
-    // private function builtUser(array $row): ModelUser
-    // {
-    //     $user = new ModelUser;
-    //     $user->setUId((int) $row['id']);
-    //     $user->setUFirstname((string)$row['firstname']);
-    //     $user->setULastname((string)$row['lastname']);
-    //     $user->setUEmail((string) $row['email']);
-    //     $user->setUTelephone((int) $row['phone']);
-    // }
-
-    public function create(array $data = [])
-    {
-        $this->createQuery(
-            'INSERT INTO post (title, content, createdAt, authorID) VALUES (:title, :content, :createdAt, :authorId)',
-            [
-                'title' => $data['title'],
-                'content' => $data['content'],
-                'createdAt' => (new \DateTime())->format('Y-m-d H:i:s'),
-                'authorId' => $_SESSION['id'],
-            ]
-        );
-        header('Location: index.php?route=sucess&resquest=created');
-        exit();
-    }
-
-    public function update(array $data = [])
-    {
-        $this->createQuery(
-            'UPDATE `post` SET title=:title, content=:content, createdAt=:createdAt, updateAt=:updateAt WHERE id=:id ',
-            [
-                'title' => $data['title'],
-                'content' => $data['content'],
-                'createdAt' => $data['createdAt'],
-                'updateAt' => $data['updateAt'],
-                'id' => $data['id'],
-            ]
-        );
-        header('Location: index.php?route=sucess&resquest=updated');
-        exit();
-    }
-
-    public function delete(array $data = [])
-    {
-        $this->createQuery(
-            // title=:title, content=:content, createdAt=:createdAt, 
-            'DELETE FROM post WHERE id=:id ',
-            [
-                // 'title' => $data['title'],
-                // 'content' => $data['content'],
-                // 'createdAt' => $data['createdAt'],
-                // 'deletedAt' => $data['delatedAt'],
-                'id' => $data['id'],
-            ]
-        );
-        header('Location: index.php?route=sucess&resquest=deleted');
-        exit();
     }
 }
 
