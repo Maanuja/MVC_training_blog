@@ -4,6 +4,8 @@ namespace App\controller;
 
 use App\repository\PostRepository;
 use App\repository\UserRepository;
+use App\repository\ContactRepository;
+
 
 class PostController
 {
@@ -11,14 +13,13 @@ class PostController
     {
         $this->postRepository = new PostRepository();
         $this->userRepository = new UserRepository();
+        $this->contactRepository = new ContactRepository();
+
 
     }
     public function showDrama(){
         $this->postRepository->getPosts();
         require('src/view/drama.php');
-    }
-    public function showContact(){
-        require('src/view/contact.php');
     }
     public function ShowCreate()
     {
@@ -40,6 +41,11 @@ class PostController
     public function changePassword(){
         if ('POST' === $_SERVER['REQUEST_METHOD']) {
             $this->userRepository->changePassword($_POST);
+        }
+    }
+    public function sendContact(){
+        if ('POST' === $_SERVER['REQUEST_METHOD']) {
+            $this->contactRepository->sendContact($_POST);
         }
     }
     // CRUD POST

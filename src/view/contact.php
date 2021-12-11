@@ -19,30 +19,26 @@
 <?php $log = ob_get_clean() ?>
 <?php ob_start(); ?>
         <main>
-            <!-- <div class="page-loader">
-                <div class="loader">Loading...</div>
-            </div> -->
-            <section class="jumbo text-centertron"></section>
             <div class="container">
-                <form name="contactus" method="post">
+                <form name="contactus" action="index.php?route=contact" method="post">
                     <fieldset>
                         <legend>Nous Conctacter</legend>
                         <table id="contact-form">
                             <tr>
                                 <td class="tdcontact">
                                     <input type="text" id="nom" name="nom"
-                                    placeholder="Nom" required>
+                                    placeholder="Lastname" >
                                 </td>
                                 <td class="tdcontact">
-                                    <input type="text" id="prenom" name="prenom" placeholder="Prenom" required>
+                                    <input type="text" id="prenom" name="prenom" placeholder="Firstname" >
                                 </td>
                             </tr>
                             <tr>
                                 <td class="tdcontact">
-                                    <input type="text" id="email" name="email" placeholder="pseudo@domain.com" required>
+                                    <input type="text" id="email" name="email" placeholder="pseudo@domain.com" >
                                 </td>
                                 <td class="tdcontact">
-                                    <input type="text" name="tel" id="tel" placeholder="N° de télèphone" required>
+                                    <input type="text" name="tel" id="tel" placeholder="Phone number" >
                                 </td>
                             </tr>
                             <tr>
@@ -53,13 +49,10 @@
                             <tr>
                                 <td>
                                     <button type="reset" class="btn btn-g me-2 btn-round">Reset</button>
-
-                                    <!-- <input type="reset" value="ANNULER" > -->
                                 </td>
                                 <td>
-                                    <!-- <input type="submit" name="validcon" value="ENVOYER" > -->
                                     <!-- onclick="return contact();" -->
-                                    <button type="submit" class="btn btn-g btn-round">Send</button>
+                                    <button type="submit" class="btn btn-g btn-round" onclick="return contact();">Send</button>
                                 </td>
                             </tr>
                         </table>
@@ -67,5 +60,6 @@
                 </form>
             </div>
         </main>
+        <script type="text/javascript" src="assets/js/contact.js"></script>
 <?php $content = ob_get_clean(); ?>
 <?php require('main.php'); ?>

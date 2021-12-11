@@ -29,8 +29,11 @@ class Router
                     $postController->delete($_GET['id']);
                 } 
             } elseif ('contact' === $route) {
-                // var_dump('contact');
-                $postController->showContact();
+                require('src/view/contact.php');
+
+                // $postController->showContact();
+                return $postController->sendContact();
+
             }elseif ('aboutus' === $route) {
                 require('src/view/aboutus.php');
             }elseif ('drama' === $route) {

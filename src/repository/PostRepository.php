@@ -72,7 +72,7 @@ class PostRepository extends Database
             $file_loc = $_FILES['image']['tmp_name'];
 
             if (move_uploaded_file($file_loc,$folder.$final_file)) {
-                 $this->createQuery(
+                $this->createQuery(
                     'INSERT INTO post (title, content, createdAt, authorID ,image) VALUES (:title, :content, :createdAt, :authorId, :image)',
                     [
                         'title' => $data['title'],
