@@ -11,6 +11,7 @@ class Post
     private  $updatedAt;
     private  $deletedAt;
     private  $authorId;
+    private $image;
 
     public function getId(): int
     {
@@ -92,6 +93,18 @@ class Post
     public function setAuthorId($authorId)
     {
         $this->authorId = $authorId;
+
+        return $this;
+    }
+
+    public function getImage()
+    {
+        return $this->image;
+    }
+
+    public function setImage($image)
+    {
+        $this->image = $image;
 
         return $this;
     }

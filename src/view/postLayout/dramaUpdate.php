@@ -35,7 +35,7 @@ use App\repository\PostRepository;
                 // var_dump($id);
                 // var_dump($posts);
             ?>
-            <form action="" class="row g-3" method="post" onsubmit="return confirm('Do you really want to update this  post?');">
+            <form action="" class="row g-3" method="post" enctype="multipart/form-data" onsubmit="return confirm('Do you really want to update this  post?');">
                 <div class="col-md-6">
                 <!-- <input type="hidden" name'_METHOD' value="PUT"> -->
                     <label for="title" class="form-label">TiTLE</label>
@@ -58,14 +58,13 @@ use App\repository\PostRepository;
                     <label for="date" class="form-label">Update on </label>
                     <input type="text" name="updateAt" class="form-control" id="updateAt" value="<?php echo (new \DateTime())->format('Y-m-d H:i:s'); ?>">
                 </div>
+                <div class="mb-3">
+                        <label>Select Image File: <p style="font-size:15px;"> .jpg, .jpeg, .png limite 2MB</p></label>
+                        <input type="file" name="image" id="image" accept=".jpg, .jpeg, .png" value="upload">
+                    </div>
                 <div class="col-12">
                     <button type="submit" class="btn btn-primary">Update</button>
                 </div>
-            </form>
-            <form action="upload.php" method="post" enctype="multipart/form-data">
-                <label>Select Image File:</label>
-                <input type="file" name="image">
-                <input type="submit" name="submit" value="Upload">
             </form>
         </div>
 <?php $content = ob_get_clean(); ?>

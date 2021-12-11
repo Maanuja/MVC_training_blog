@@ -58,7 +58,7 @@
                         ?>
                         <div class="col-md-4">
                         <div class="card mb-4 box-shadow">
-                            <img class="card-img-top"  alt="Thumbnail [100%x225]" style="height: 225px; width: 100%; display: block;" src="" data-holder-rendered="true">
+                            <img class="card-img-top"  alt="Thumbnail [100%x225]" style="height: 475px; width: 100%; display: block;" src="assets/images/posts/<?php echo $post['image']; ?>" data-holder-rendered="true">
                             <div class="card-body">
                                 <h5 class="card-title"><?php  echo $post['title']; ?></h5>
                                 <p class="card-text">

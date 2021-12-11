@@ -36,6 +36,7 @@ class PostRepository extends Database
         $post->setUpdatedAt(isset($row['updatedAt']) ? new \DateTime($row['updatedAt']) : null);
         $post->setDeletedAt(isset($row['deletedAt']) ? new \DateTime($row['deletedAt']) : null);
         $post->setAuthorId((int) $row['authorID']);
+        $post->setImage( $row['image']);
 
         return $post;
     }
@@ -62,33 +63,78 @@ class PostRepository extends Database
 
     public function create(array $data = [])
     {
-        $this->createQuery(
-            'INSERT INTO post (title, content, createdAt, authorID) VALUES (:title, :content, :createdAt, :authorId)',
-            [
-                'title' => $data['title'],
-                'content' => $data['content'],
-                'createdAt' => (new \DateTime())->format('Y-m-d H:i:s'),
-                'authorId' => $data['id'],
-            ]
-        );
-        header('Location: index.php?route=sucess&resquest=created');
-        exit();
+        if (!empty($_FILES['image']['name'])) {
+            $var1 = rand(1111,9999);
+            $file = $data['id'].$var1.git s$_FILES['image']['name'];
+            $folder = "assets/images/posts/";
+            $new_file_name = strtolower($file);
+            $final_file = str_replace(' ','-',$new_file_name);
+            $file_loc = $_FILES['image']['tmp_name'];
+
+            if (move_uploaded_file($file_loc,$folder.$final_file)) {
+                 $this->createQuery(
+                    'INSERT INTO post (title, content, createdAt, authorID ,image) VALUES (:title, :content, :createdAt, :authorId, :image)',
+                    [
+                        'title' => $data['title'],
+                        'content' => $data['content'],
+                        'createdAt' => (new \DateTime())->format('Y-m-d H:i:s'),
+                        'authorId' => $data['id'],
+                        'image' => $final_file,
+                    ]
+                );
+
+                header('Location: index.php?route=sucess&resquest=created');
+                exit();
+            }
+        }
+        else{
+            echo "<script>alert(\"Sorry add an image to complete your post!\")</script>";
+            echo '<meta http-equiv="refresh" content="0;URL=index.php?route=create">';
+
+
+        }
     }
 
     public function update(array $data = [])
     {
-        $this->createQuery(
-            'UPDATE `post` SET title=:title, content=:content, createdAt=:createdAt, updateAt=:updateAt WHERE id=:id ',
-            [
-                'title' => $data['title'],
-                'content' => $data['content'],
-                'createdAt' => $data['createdAt'],
-                'updateAt' => $data['updateAt'],
-                'id' => $data['id'],
-            ]
-        );
-        header('Location: index.php?route=sucess&resquest=updated');
-        exit();
+        if (!empty($_FILES['image']['name'])) {
+            $var1 = rand(1111,9999);
+            $file = $data['id'].$var1.$_FILES['image']['name'];
+            $folder = "assets/images/posts/";
+            $new_file_name = strtolower($file);
+            $final_file = str_replace(' ','-',$new_file_name);
+            $file_loc = $_FILES['image']['tmp_name'];
+
+            if (move_uploaded_file($file_loc,$folder.$final_file)) {
+                $this->createQuery(
+                    'UPDATE `post` SET title=:title, content=:content, createdAt=:createdAt, updateAt=:updateAt, image=:image WHERE id=:id ',
+                    [
+                        'title' => $data['title'],
+                        'content' => $data['content'],
+                        'createdAt' => $data['createdAt'],
+                        'updateAt' => $data['updateAt'],
+                        'image' => $final_file,
+                        'id' => $data['id'],
+                    ]
+                );
+                header('Location: index.php?route=sucess&resquest=updated');
+                exit();
+            }
+        }
+        else{
+            $this->createQuery(
+                'UPDATE `post` SET title=:title, content=:content, createdAt=:createdAt, updateAt=:updateAt WHERE id=:id ',
+                [
+                    'title' => $data['title'],
+                    'content' => $data['content'],
+                    'createdAt' => $data['createdAt'],
+                    'updateAt' => $data['updateAt'],
+                    'id' => $data['id'],
+                ]
+            );
+            header('Location: index.php?route=sucess&resquest=updated');
+            exit();
+        }
     }
 
     public function delete(array $data = [])
