@@ -50,11 +50,11 @@
                         <li class="nav-item"><a href="index.php?route=aboutus" class="nav-link px-2 text-muted">About Me</a></li>
                     </ul>
                     <div class="d-flex justify-content-between py-4 my-4">
-                    <p>© 2021 Company, Inc. All rights reserved.</p>
+                    <p>© 2021 Maanuja, All rights reserved.</p>
                         <ul class="list-unstyled d-flex">
                             <li class="ms-3"><a href="https://www.facebook.com/" target="_blank"><i class="fa fa-facebook"></i></a></li>
-                            <li class="ms-3"><a href="https://www.instagram.com/?hl=en" target="_blank"><i class="fa fa-instagram"></i></a></li>
-                            <li class="ms-3"><a href="https://twitter.com/?lang=en" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                            <li class="ms-3"><a href="https://www.instagram.com/" target="_blank"><i class="fa fa-instagram"></i></a></li>
+                            <li class="ms-3"><a href="https://twitter.com/" target="_blank"><i class="fa fa-twitter"></i></a></li>
                         </ul>  
                     </div>          
                 </footer>
