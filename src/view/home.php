@@ -29,10 +29,9 @@
                         <h1 class="display-5 fw-bold">DramaNote </h1>
                         <h2 class="display-6 fw-bold">Brings Happiness to your days.</h2>
                         <p class="col-md-8 fs-4">
-                        This list contains all of the Korean dramas I have reviewed so far.
-                        I have seen many more dramas, and I am always watching something new.
-                        It is a continuously growing list, so be sure to check back!
-                        A ratings explanation can be found at the bottom of the list.
+                        This list contains all of the Korean dramas people from the community have reviewed so far.
+                        I have seen many more dramas, and I am always watching something new. I know it's the same for you!
+                        It is a continuously growing list, so be sure to check back! And join me!
                         </p>
                         <button class="btn btn-primary btn-lg" type="button"><a href="index.php?route=drama">DramaList</a></button>
                     </section>

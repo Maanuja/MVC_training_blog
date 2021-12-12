@@ -22,7 +22,7 @@
             <div class="container">
                 <form name="contactus" action="index.php?route=contact" method="post">
                     <fieldset>
-                        <legend>Nous Conctacter</legend>
+                        <legend>Send me Ideas!</legend>
                         <table id="contact-form">
                             <tr>
                                 <td class="tdcontact">
