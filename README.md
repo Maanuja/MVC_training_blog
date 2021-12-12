@@ -4,6 +4,7 @@ Le but du site:
     Le site permet de créer des posts sur des Dramas de tout genre et ici majoritairement coréen.
 
 Ce que le site premmet de faire:
+
     En tant que visiteur vous pouvez:
         -   Envoyer un message au créateur aka moi du site grace à la page contact les données seront stokées dans la databse 'contact'
         -   Lire les differents articles proposés par la communauté.
