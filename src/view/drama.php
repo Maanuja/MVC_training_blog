@@ -51,6 +51,8 @@
                     <div class="row">
                         <?php
                             foreach( $posts as $post) {
+                                if ($post['deletedAt']==null) {
+
                         ?>
                         <div class="col-md-4">
                         <div class="card mb-4 box-shadow">
@@ -75,11 +77,13 @@
                                             echo $post['id'];
                                             echo '" class="nav-link px-2 text-secondary">Edit</a>';
                                             echo '</button>';
-                                            echo '<button type="button" class="btn btn-sm btn-outline-secondary">';
-                                            echo '<a href="index.php?route=post&action=delete&id=';
-                                            echo $post['id'];
-                                            echo '" class="nav-link px-2 text-secondary">Delete</a>';
-                                            echo '</button>';
+                                            if ($post['deletedAt']==null){
+                                                echo '<button type="button" class="btn btn-sm btn-outline-secondary">';
+                                                echo '<a href="index.php?route=post&action=delete&id=';
+                                                echo $post['id'];
+                                                echo '" class="nav-link px-2 text-secondary">Delete</a>';
+                                                echo '</button>';
+                                            }
                                         }
                                     ?>
                                     
@@ -99,6 +103,7 @@
                         </div>
                         <?php
                             }
+                        }
                         ?>
                     </div>
                 </div>

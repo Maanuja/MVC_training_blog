@@ -137,16 +137,32 @@ class PostRepository extends Database
         }
     }
 
+    // public function delete(array $data = [])
+    // {
+    //     $this->createQuery(
+    //         // title=:title, content=:content, createdAt=:createdAt, 
+    //         'DELETE FROM post WHERE id=:id ',
+    //         [
+    //             // 'title' => $data['title'],
+    //             // 'content' => $data['content'],
+    //             // 'createdAt' => $data['createdAt'],
+    //             // 'deletedAt' => $data['delatedAt'],
+    //             'id' => $data['id'],
+    //         ]
+    //     );
+    //     header('Location: index.php?route=sucess&resquest=deleted');
+    //     exit();
+    // }
     public function delete(array $data = [])
     {
         $this->createQuery(
             // title=:title, content=:content, createdAt=:createdAt, 
-            'DELETE FROM post WHERE id=:id ',
+            'UPDATE `post` SET title=:title, content=:content, createdAt=:createdAt, deletedAt=:deletedAt WHERE id=:id ',
             [
-                // 'title' => $data['title'],
-                // 'content' => $data['content'],
-                // 'createdAt' => $data['createdAt'],
-                // 'deletedAt' => $data['delatedAt'],
+                'title' => $data['title'],
+                'content' => $data['content'],
+                'createdAt' => $data['createdAt'],
+                'deletedAt' => $data['deletedAt'],
                 'id' => $data['id'],
             ]
         );

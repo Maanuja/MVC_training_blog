@@ -29,7 +29,6 @@ class PostController
     public function signUser(){
         if ('POST' === $_SERVER['REQUEST_METHOD']) {
             $this->userRepository->signUser($_POST);
-            // var_dump($_POST);
         }
     }
 
@@ -60,7 +59,6 @@ class PostController
     {
         $postRepository = new PostRepository();
         $post = $postRepository->getPost($id);
-        // var_dump($post);
         require('src/view/postLayout/dramaRead.php');
     }
 

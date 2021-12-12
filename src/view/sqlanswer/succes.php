@@ -24,7 +24,7 @@
         $sqlres ='<div class="correct">Le post a été créé!</div>';
     } if (isset($_GET['resquest']) && $_GET['resquest'] == 'deleted')
     {
-        $sqlres ='<div class="correct">Le post a été deleted!</div>';
+        $sqlres ='<div class="correct">The post got deleted, you can now only see it in your profile!</div>';
     }
     if (isset($_GET['resquest']) && $_GET['resquest'] == 'updated')
     {
@@ -34,14 +34,10 @@
     {
         $sqlres ='<div class="correct">Your password has been changed !</div>';
     }
-    // if (isset($_GET['route']) && $_GET['route'] == 'exist')
-    // {
-    //     $sqlres ='<div class="correct">User already exist!</div>';
-    // }
-    // if (isset($_GET['resquest']) && $_GET['resquest'] == 'connected')
-    // {
-    //     $sqlres ='<div class="correct">User logged!</div>';
-    // }
+    if (isset($_GET['resquest']) && $_GET['resquest'] == 'deletedsee')
+    {
+        $sqlres ='<div class="correct">The post has been deleted by you! If you wan\'t it back create another one plz :(</div>';
+    }
 ?>
 <?php ob_start(); ?>
             <main class="px-3">

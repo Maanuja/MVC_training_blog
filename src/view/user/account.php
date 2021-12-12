@@ -95,11 +95,17 @@ use App\repository\PostRepository;;
                                     echo $post['id'];
                                     echo '" class="nav-link px-2 text-secondary">Edit</a>';
                                     echo '</button>';
-                                    echo '<button type="button" class="btn btn-sm btn-outline-secondary">';
-                                    echo '<a href="index.php?route=post&action=delete&id=';
-                                    echo $post['id'];
-                                    echo '" class="nav-link px-2 text-secondary">Delete</a>';
-                                    echo '</button>';
+                                    if ($post['deletedAt']==null){
+                                        echo '<button type="button" class="btn btn-sm btn-outline-secondary">';
+                                        echo '<a href="index.php?route=post&action=delete&id=';
+                                        echo $post['id'];
+                                        echo '" class="nav-link px-2 text-secondary">Delete</a>';
+                                        echo '</button>';
+                                    } else{
+                                      echo '<button type="button" class="btn btn-sm btn-outline-danger">';
+                                        echo '<a href="index.php?route=sucess&resquest=deletedsee" class="nav-link px-2 text-secondary">GOT DELETED</a>';
+                                        echo '</button>';
+                                    }
                                 }
                             ?>
                             

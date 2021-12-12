@@ -56,13 +56,24 @@ use App\repository\PostRepository;
                     <label for="date" class="form-label">Update on </label>
                     <input type="text" name="updateAt" class="form-control" id="updateAt" value="<?php echo (new \DateTime())->format('Y-m-d H:i:s'); ?>">
                 </div>
-                <div class="mb-3">
-                        <label>Select Image File: <p style="font-size:15px;"> .jpg, .jpeg, .png limite 2MB</p></label>
-                        <input type="file" name="image" id="image" accept=".jpg, .jpeg, .png" value="upload">
-                    </div>
-                <div class="col-12">
-                    <button type="submit" class="btn btn-primary">Update</button>
-                </div>
+                <?php if ($post->getDeletedAt()!=null){
+                    echo '<div class="col-md-12">
+                    <h4 for="date" class="form-label">Since this post got deleted on the  ';
+                    echo $post->getDeletedAt()->format('Y-m-d');
+                    echo ' you can\'t update it sorry...</h4></div>';
+                ?>
+                
+                
+                <?php 
+                    echo'<div class="col-12"><button type="submit" class="btn btn-primary" disabled>Update</button></div>';
+                } else{
+                    echo '<div class="mb-3">
+                            <label>Select Image File: <p style="font-size:15px;"> .jpg, .jpeg, .png limite 2MB</p></label>
+                            <input type="file" name="image" id="image" accept=".jpg, .jpeg, .png" value="upload">
+                        </div>';
+                    echo'<div class="col-12"><button type="submit" class="btn btn-primary">Update</button></div>}';
+                }
+                ?>
             </form>
         </div>
 <?php $content = ob_get_clean(); ?>
