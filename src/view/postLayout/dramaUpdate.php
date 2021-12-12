@@ -71,7 +71,7 @@ use App\repository\PostRepository;
                             <label>Select Image File: <p style="font-size:15px;"> .jpg, .jpeg, .png limite 2MB</p></label>
                             <input type="file" name="image" id="image" accept=".jpg, .jpeg, .png" value="upload">
                         </div>';
-                    echo'<div class="col-12"><button type="submit" class="btn btn-primary">Update</button></div>}';
+                    echo'<div class="col-12"><button type="submit" class="btn btn-primary">Update</button></div>';
                 }
                 ?>
             </form>
