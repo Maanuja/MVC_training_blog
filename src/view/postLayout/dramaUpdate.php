@@ -27,12 +27,16 @@ use App\repository\PostRepository;
 
         <div class="container">
             <?php 
-                $postObjects = new PostRepository();
-                $posts = $postObjects->getPosts()->fetchAll();
-                $author =  $postObjects->getAuthor($post->getAuthorId());
-                // var_dump($id);
-                // var_dump($posts);
+                    $postObjects = new PostRepository();
+                    $posts = $postObjects->getPosts()->fetchAll();
+                    $author =  $postObjects->getAuthor($post->getAuthorId());
+                    // var_dump($id);
+                    // var_dump($posts);
             ?>
+        <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
+            <h1 class="display-4 fw-normal">Update <?php echo $post->getTitle(); ?></h1>
+        </div>
+            
             <form action="" class="row g-3" method="post" enctype="multipart/form-data" onsubmit="return confirm('Do you really want to update this  post?');">
                 <div class="col-md-6">
                 <!-- <input type="hidden" name'_METHOD' value="PUT"> -->

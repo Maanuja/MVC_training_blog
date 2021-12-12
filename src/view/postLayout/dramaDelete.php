@@ -33,6 +33,9 @@ use App\repository\PostRepository;
                 // var_dump($id);
                 // var_dump($posts);
             ?>
+            <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
+                <h1 class="display-4 fw-normal">Delete <?php echo $post->getTitle(); ?></h1>
+            </div>
             <form action="" class="row g-3" method="POST" onsubmit="return confirm('Do you really want to delete this post?');">
                 <div class="col-md-6">
                     <label for="title" class="form-label">TiTLE</label>

@@ -21,6 +21,9 @@
 <?php $log = ob_get_clean() ?>
 <?php ob_start(); ?>
     <div class="container">
+    <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
+        <h1 class="display-4 fw-normal">Create a new post</h1>
+    </div>
         <div class="row">
             <div class="col-12">
                 <form action="index.php?route=post&action=create" method="post" enctype="multipart/form-data" onsubmit="return confirm('Do you really want to create this post?');">

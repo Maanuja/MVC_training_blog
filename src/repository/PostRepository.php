@@ -169,16 +169,4 @@ class PostRepository extends Database
         header('Location: index.php?route=sucess&resquest=deleted');
         exit();
     }
-
-    public function getLast3post(): array
-    {
-        $prep = $this->createQuery("SELECT * FROM post WHERE etat = 1 ORDER BY DATE DESC LIMIT 3");
-        $result = $prep->fetchAll(\PDO::FETCH_ASSOC);
-        $res = array();
-        foreach ($result as $row) {
-            array_push($res, ($this->builtPost($row)));
-        }
-        return $res;
-    }
 }
-

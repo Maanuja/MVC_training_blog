@@ -36,7 +36,7 @@
     }
     if (isset($_GET['resquest']) && $_GET['resquest'] == 'deletedsee')
     {
-        $sqlres ='<div class="correct">The post has been deleted by you! If you wan\'t it back create another one plz :(</div>';
+        $sqlres ='<div class="correct">The post has been deleted by you! If you want it back create another one plz :(</div>';
     }
 ?>
 <?php ob_start(); ?>
